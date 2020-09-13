@@ -13,7 +13,7 @@ class Directory extends React.Component {
                   title: 'action',
                   imageUrl: 'https://www.nme.com/wp-content/uploads/2020/05/star-wars-jed-fallen-order-credit-ea@2000x1270-696x442.jpg',
                   id: 1,
-                  linkUrl: 'shop/actions'
+                  linkUrl: 'action'
                 },
                 {
                   title: 'rpg',
@@ -53,13 +53,13 @@ class Directory extends React.Component {
 
     render() {
         return (
-            <div className = 'directory-menu'>
-                {this.state.sections.map(({title, imageUrl, id, size}) => (
-                    <MenuItem key = {id} title={title} imageUrl = {imageUrl} size={size}/>
-                ))}
-            </div>
+          <div className='directory-menu'>
+            {this.state.sections.map(({ id, ...otherSectionProps }) => (
+              <MenuItem key={id} {...otherSectionProps} />
+            ))}
+          </div>
         );
+      }
     }
-}
-
-export default Directory;
+    
+    export default Directory;
